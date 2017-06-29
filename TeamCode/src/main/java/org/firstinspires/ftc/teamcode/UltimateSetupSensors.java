@@ -37,13 +37,18 @@ public class UltimateSetupSensors {
 
 
     /* Constructor */
-    public UltimateSetupSensors() {
+    public UltimateSetupSensors()
+    {
+
     }
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
         // Save reference to Hardware map
         hwMap = ahwMap;
+
+        lightSensor = hwMap.opticalDistanceSensor.get("lightSensor");
+        lightSensor.enableLed(true);
 
         LeftDistanceSensor = (ModernRoboticsI2cRangeSensor) hwMap.ultrasonicSensor.get("LeftSonicSensor");
         RightDistanceSensor = (ModernRoboticsI2cRangeSensor) hwMap.ultrasonicSensor.get("RightSonicSensor");
@@ -55,9 +60,6 @@ public class UltimateSetupSensors {
         //touchSensorFront    = (ModernRoboticsDigitalTouchSensor) hwMap.touchSensor.get("touchFront");
 
 
-        //Define lightSensor & enbale its led
-        //lightSensor = hwMap.opticalDistanceSensor.get("lightSensor");
-        //lightSensor.enableLed(true); // brightness of reflected lioght is measured
 
         // Define ColorSensor & enbale led
         //colorSensor = hwMap.colorSensor.get("sensor_color");

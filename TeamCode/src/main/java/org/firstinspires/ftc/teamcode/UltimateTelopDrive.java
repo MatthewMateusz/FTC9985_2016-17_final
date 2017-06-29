@@ -58,7 +58,7 @@ public class UltimateTelopDrive extends OpMode
 
     /* Declare OpMode members. */
     private UltimateSetupActuators robot            = new UltimateSetupActuators(); // Use Pushbot's actuators
-    private UltimateSetupActuators sensors            = new UltimateSetupActuators();   // Use Pushbot's sensors
+    private UltimateSetupSensors sensors            = new UltimateSetupSensors();   // Use Pushbot's sensors
     // use the class above that was created to define a Pushbot's hardware
 //  private double              clawOffset      = 0.0 ;                     // Servo mid position
 
@@ -66,6 +66,7 @@ public class UltimateTelopDrive extends OpMode
     private static final double ARM_UP_POWER    =  0.8 ;                   //
     private static final double ARM_DOWN_POWER  = -0.8 ;
     private static final double Deadzone = 0.1;
+
 
     //Used to move the robot on the vertical axis
     private void DriveVertical (double power)
@@ -132,6 +133,7 @@ public class UltimateTelopDrive extends OpMode
          */
         robot.init(hardwareMap);
         sensors.init(hardwareMap);
+
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Master please control me!");    //
@@ -221,6 +223,11 @@ public class UltimateTelopDrive extends OpMode
                 DriveHorizontal(Horizontal);
                 Mode += "Horizontal";
             }
+        }
+
+        if (sensors.lightSensor.getLightDetected() < 0.6 /* Turn into a static var */)
+        {
+
         }
 
 

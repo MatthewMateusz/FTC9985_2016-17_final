@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 //import com.qualcomm.robotcore.hardware.Servo;
 
@@ -27,6 +28,9 @@ public class UltimateSetupActuators
     public DcMotor FrontRight = null;
     public DcMotor RearLeft = null;
     public DcMotor RearRight = null;
+
+    public DcMotor StarBurstArm = null;
+    public DcMotor BallArm = null;
 
     //public DcMotor armMotor    = null;
 
@@ -58,12 +62,18 @@ public class UltimateSetupActuators
         RearLeft = hwMap.dcMotor.get("RearLeft_Motor");
         RearRight = hwMap.dcMotor.get("RearRight_Motor");
 
+        StarBurstArm = hwMap.dcMotor.get("StarBurstArm");
+        BallArm = hwMap.dcMotor.get("BallArm");
+
         //armMotor    = hwMap.dcMotor.get("left_arm");
 
         FrontLeft.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         FrontRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         RearLeft.setDirection(DcMotor.Direction.FORWARD);
         RearRight.setDirection(DcMotor.Direction.FORWARD);
+
+        StarBurstArm.setDirection(DcMotor.Direction.FORWARD);
+        BallArm.setDirection(DcMotor.Direction.FORWARD);
 
         //armMotor.setDirection(DcMotorSimple.Direction.FORWARD);
 
@@ -73,6 +83,9 @@ public class UltimateSetupActuators
         RearLeft.setPower(0);
         RearRight.setPower(0);
 
+        StarBurstArm.setPower(0);
+        BallArm.setPower(0);
+
         //armMotor.setPower(0);
 
         // Set all motors to run without encoders.
@@ -81,6 +94,9 @@ public class UltimateSetupActuators
         FrontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        StarBurstArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        BallArm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         //armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
